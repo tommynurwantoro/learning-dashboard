@@ -1,0 +1,23 @@
+# Production override for docker-compose
+# Usage: docker-compose -f docker-compose.yml -f docker-compose.prod.yml up -d
+version: '3.8'
+
+services:
+  learning-dashboard:
+    build:
+      context: .
+      target: runner
+    container_name: learning-dashboard
+    ports:
+      - "3000:3000"
+    volumes:
+      - learning-dashboard-db:/app/db
+    environment:
+      - NODE_ENV=production
+      - HOSTNAME=0.0.0.0
+    restart: unless-stopped
+    # Remove dev-specific overrides (no source mount, no node_modules override)
+
+volumes:
+  learning-dashboard-db:
+    name: learning-dashboard-db

@@ -1,0 +1,34 @@
+# Dependencies
+node_modules
+.pnp
+.pnp.js
+
+# Build output
+.next
+out
+
+# Development
+.git
+.gitignore
+*.md
+.env*.local
+.DS_Store
+
+# IDE
+.vscode
+.idea
+
+# Testing
+coverage
+.nyc_output
+*.test.*
+*.spec.*
+
+# Database files (use volume mount in production)
+db/*.db
+db/*.db-*
+
+# Misc
+docker-compose*.yml
+Dockerfile*
+.dockerignore
