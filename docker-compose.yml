@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  learning-dashboard:
+    build: .
+    container_name: learning-dashboard
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./db:/app/db
+      - ./:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+    restart: unless-stopped
